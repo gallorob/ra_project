@@ -1,0 +1,4 @@
+theme: jekyll-theme-midnight
+title: ra_project
+description: Reasoning Agents project website
+permalink: /:year/:month/:day/:title/
