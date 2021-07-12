@@ -1,4 +1,5 @@
-theme: jekyll-theme-midnight
+theme: jekyll-theme-time-machine
+
 title: ra_project
 description: Reasoning Agents project website
 permalink: /:year/:month/:day/:title/
