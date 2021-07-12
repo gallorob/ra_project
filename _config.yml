@@ -1,5 +1,8 @@
 theme: jekyll-theme-time-machine
 
-title: ra_project
-description: Reasoning Agents project website
+title: Reasoning Agents project website
+description: TODO
 permalink: /:year/:month/:day/:title/
+
+show_downloads: "true"
+
