@@ -1,10 +1,6 @@
 theme: jekyll-theme-midnight
 
-<<<<<<< HEAD
 title: Reasoning Agents Project Website
-=======
-title: Reasoning Agents project website
->>>>>>> d90e0e4b5f6c8794e138167de17dcc802b77786f
 description: TODO
 permalink: /:year/:month/:day/:title/
 
