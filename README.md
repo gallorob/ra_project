@@ -302,7 +302,7 @@ We also tried running the training with reward shaping for much longer, though t
 We report the generated graph of the STRIPS problem.
 
 <p align="center">
-<img src="./code/strips/src/taxi_strips_plangraph.png" alt="alt_title" height = "200"/>
+<img src="./code/strips/src/taxi_strips_plangraph.png" alt="alt_title" height = "150"/>
 <figcaption aligh="center">Fig.14: The complete Taxi environment described as a STRIPS problem</figcaption>
 </p>
 
