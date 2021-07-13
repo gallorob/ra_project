@@ -193,7 +193,7 @@ We report here the results of our experiments. Each experiment consists in train
 We found that the agent reliably clears the environment, obtaining the temporal goal reward consistently during training and during testing, where the episodic reward is higher than the temporal goal reward (set at 100) and varies only on the number of steps taken by the agent. We report the graphs for this experiment at Fig. \ref{fig:base_env_goal}.
 
 <p align="center">
-<img src="./code/ltlf/results/Train rewards env_base (reward shaping).png" alt="alt_title" height="250"/> <img src="./code/ltlf/results/Test rewards env_base.png" alt="alt_title" height="250"/>
+<img src="./code/ltlf/results/Train rewards env_base (reward shaping).png" alt="alt_title" width = "100"/> <img src="./code/ltlf/results/Test rewards env_base.png" alt="alt_title" width = "100"/>
 </p>
 
 When reward shaping is applied, we can see that the agent converges more rapidly to a stable high reward during training, though it also increases the frequency of failed episodes. During testing, however, the learned Q values are good enough that no episode failed. We report the graphs for this experiment at Fig. \ref{fig:base_env_goal_reward_shaping}.
