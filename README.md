@@ -194,15 +194,14 @@ We found that the agent reliably clears the environment, obtaining the temporal 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards env_base.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards env_base.png" alt="alt_title" height = "200"/>
-</p>
-<p aligh="center">
-Fig.1: Train and test rewards for the base environment goal
+<figcaption aligh="center">Fig.1: Train and test rewards for the base environment goal</figcaption>
 </p>
 
 When reward shaping is applied, we can see that the agent converges more rapidly to a stable high reward during training, though it also increases the frequency of failed episodes. During testing, however, the learned Q values are good enough that no episode failed. 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards env_base (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards env_base (reward shaping).png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.2: Train and test rewards for the base environment goal with reward shaping</figcaption>
 </p>
 
 ### Pass through center goal
@@ -210,12 +209,14 @@ This modified temporal goal is still easily solved by the agent during training 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_center.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_center.png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.3: Train and test rewards for the passing through the center goal</figcaption>
 </p>
 
 Interestingly, however, the addition of the reward shaping effect actually hinders performances: the training is still solved but the average episodic reward is much lower and some of the tests episode actually fail. 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_center (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_center (reward shaping).png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.4: Train and test rewards for the passing through the center goal with reward shaping</figcaption>
 </p>
 
 As the episodic rewards curve plateaus during training, we do not believe additional training steps would improve the agent's performances.
@@ -225,12 +226,14 @@ This modified temporal goal is similar to the previous one and as such is still 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_1corner.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_1corner.png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.5: Train and test rewards for the passing through 1 corner goal</figcaption>
 </p>
 
 Similarly to the previous goal, the addition of the reward shaping effect actually hinders performances: the training is still solved but the average episodic reward is much lower and some of the tests episode actually fail.
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_1corner (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_1corner (reward shaping).png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.6: Train and test rewards for the passing through 1 corner goal with reward shaping</figcaption>
 </p>
 
 The episodic rewards curve plateaus during training so we do not believe additional training steps would improve the agent's performances.
@@ -240,6 +243,7 @@ This modified temporal goal is more complex than the previous one but the agent 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_2corners.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_2corners.png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.7: Train and test rewards for the passing through 2 corners goal</figcaption>
 </p>
 
 We note however that some of the tests fail or have a final rewards that consists only on the base environment's reward (ie: it does not solve the temporal goal).
@@ -248,6 +252,7 @@ The addition of the reward shaping leads to faster convergence during training b
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_2corners (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_2corners (reward shaping).png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.8: Train and test rewards for the passing through 2 corners goal with reward shaping</figcaption>
 </p>
 
 However, with reward shaping there is no episode in the test that is completed without achieving the temporal goal as well.
@@ -257,6 +262,7 @@ This modified temporal goal is more complex than the previous one but the agent 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_3corners.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_3corners.png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.9: Train and test rewards for the passing through 3 corners goal</figcaption>
 </p>
 
 It is important to note that the convergence during training is much slower and the testing episodes either fail, are solved without satisfying the temporal goal and very few solve both the environment and the temporal goal. While the training curve plateaus, it is unclear if more training steps would actually increase performances significantly.
@@ -265,6 +271,7 @@ The addition of the reward shaping leads to faster convergence during training b
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_3corners (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_3corners (reward shaping).png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.10: Train and test rewards for the passing through 3 corners goal with reward shaping</figcaption>
 </p>
 
 However, with reward shaping there is no episode in the test that is completed without achieving the temporal goal as well.
@@ -274,18 +281,21 @@ The last temporal goal we tested is the most complex out of all and the agent is
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_4corners.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_4corners.png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.11: Train and test rewards for the passing through 4 corners goal</figcaption>
 </p>
 
 The addition of the reward shaping leads to faster convergence during training but no solution is found: not even the base environment is solved. This may be due to the complexity of the temporal goal, though it is unclear why not even the base environment could be solved. 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_4corners (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_4corners (reward shaping).png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.12: Train and test rewards for the passing through 4 corners goal with reward shaping</figcaption>
 </p>
 
 We also tried running the training with reward shaping for much longer, though the outcome is still the same.
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_4corners More steps (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_4corners More steps (reward shaping).png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.13: Train and test rewards for the passing through 4 corners goal with reward shaping and with more training steps</figcaption>
 </p>
 
 ### STRIPS-based TG
@@ -293,12 +303,14 @@ We report the generated graph of the STRIPS problem.
 
 <p align="center">
 <img src="./code/strips/src/taxi_strips_plangraph.pdf" alt="alt_title" height = "250"/>
+<figcaption aligh="center">Fig.14: The complete Taxi environment described as a STRIPS problem</figcaption>
 </p>
 
 We ran the training for just 1500 steps as it rapidly converged to a solution.
 
 <p align="center">
 <img src="./code/strips/results/Train rewards STRIPS.png" alt="alt_title" height = "200"/> <img src="./code/strips/results/Test rewards STRIPS.png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.15: Train and test rewards for the STRIPS-defined temporal goal</figcaption>
 </p>
 
-The rewards graph is very similar to that of the base environment goal with reward shaping, reported in Fig ??. The agent learned a good policy that solved both the base environment goal and the temporal goal (though, as previously stated, these two coincide) and obtained a high-enough score in the test phase.
+The rewards graph is very similar to that of the base environment goal with reward shaping, reported in Fig 15. The agent learned a good policy that solved both the base environment goal and the temporal goal (though, as previously stated, these two coincide) and obtained a high-enough score in the test phase.
