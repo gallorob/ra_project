@@ -5,6 +5,3 @@ description: RA project website
 permalink: /:year/:month/:day/:title/
 
 show_downloads: "true"
-
- 
-
