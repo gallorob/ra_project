@@ -1,25 +1,5 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-(setq markdown-xhtml-header-content
-      "<style>
-* {
-  box-sizing: border-box;
-}
-
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>")
-
 
 ### Abstract
 We present here our work investigating the effects of Reward Shaping on a Hierarchical Reinforcement Learning (HRL) environment while specifying increasingly complex temporal goals defined as LTL$$ _f$$  formulas. Thanks to the flexibility of the LTL$$ _f$$  language, it is trivial to define such goals and, thanks to existing Python libraries, convert them to DFA automatons that work best with RL tasks.
