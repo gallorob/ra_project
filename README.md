@@ -12,11 +12,9 @@ We also investigate the possibility to discard the LTL$$ _f$$  goals and instead
 Reinforcement Learning (RL) is a branch of Machine Learning (ML), one of the most prominent and established field of study in the Artificial Intelligence (AI) sector. 
 
 AI algorithms that belong to this sub-class are designed to improve their capabilities of performing some task with experience: <em>learning </em>.
-In general, RL aims at learning an optimal behavior function, called <em>policy</em>, $$ \pi : S \rightarrow A$$ , given a set of states, actions and rewards, $$ D = \{(\langle s_0, a_1, r_1, s_1, ..., a_n, r_n, s_n\rangle_i)^n_{i=1}\}$$ , in order to maximize the final cumulative reward provided by a reward function.
+In general, RL aims at learning an optimal behavior function, called <em>policy</em>, $$ \pi : S \rightarrow A$$ , given a set of states, actions and rewards, $$ D = \{(\langle s_0, a_1, r_1, s_1, ..., a_n, r_n, s_n\rangle_i)^n_{i=1}\}$$, in order to maximize the final cumulative reward provided by a reward function.
 
-By maximizing the cumulative achieved reward, the agent learns an optimal policy function that defines which is the best action to perform considering the current state, $$ \pi(a, s) = Pr(a_t = a | s_t = s)$$.
-
-As evidenced above, to ensure the feasibility of this mechanism, a reinforcement learning problem may be modeled as a Markov Decision Process (MDP).
+A reinforcement learning problem may be modeled as a Markov Decision Process (MDP).
 
 A MDP model can be defined as:
 
