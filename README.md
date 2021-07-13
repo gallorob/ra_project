@@ -174,6 +174,7 @@ We found that the agent reliably clears the environment, obtaining the temporal 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards env_base (reward shaping).png" alt="alt_title" height="250"/>
+<img src="./code/ltlf/results/Test rewards env_base.png" alt="alt_title" height="250"/>
 </p>
 
 When reward shaping is applied, we can see that the agent converges more rapidly to a stable high reward during training, though it also increases the frequency of failed episodes. During testing, however, the learned Q values are good enough that no episode failed. We report the graphs for this experiment at Fig. \ref{fig:base_env_goal_reward_shaping}.
