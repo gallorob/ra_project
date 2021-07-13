@@ -8,7 +8,7 @@ We also investigate the possibility to discard the LTL$$ _f$$  goals and instead
 
 # Theory behind the project
 
-## Reinforcement Learning
+### Reinforcement Learning
 Reinforcement Learning (RL) is a branch of Machine Learning (ML), one of the most prominent and established field of study in the Artificial Intelligence (AI) sector. 
 
 AI algorithms that belong to this sub-class are designed to improve their capabilities of performing some task with experience: <em>learning </em>.
@@ -26,7 +26,7 @@ with:
 -  $$ r: S \times A \times S \rightarrow \mathbb{R}$$  is a reward function
 
 
-### Taxi-v3
+#### Taxi-v3
 Taxi-v3 is one among all the proposed tasks in the set of environments provided by [OpenAI](https://openai.com/), a prominent AI research and deployment company that offers a powerful toolkit, named [Gym](https://gym.openai.com/), for developing and testing reinforcement learning algorithms. This library consists in a collection of different challenges, called <em>environments</em>, which covers all the main known problems and weaknesses that afflicted, or still afflict, the RL field of study.
 
 The task, inspired by the taxi driver job, is relatively simple and takes place in a $$ 5 \times 5$$  grid with 4 marked tiles called <em>R, G, Y, B</em>.
@@ -47,17 +47,17 @@ The state is updated only by the agent's actions. There are 6 possible actions t
 
 In order to train the agent, a $$ -1$$  per-step reward is applied, except for the <em>Pick up</em> and <em>Drop off</em> actions which, if done illegally, costs $$ -10$$ . The episode ends if the agent performs the maximum number of fixed steps or if it manages to drop off the passenger at the destination obtaining a $$ +20$$  reward.
 
-### Temporal Goals
+#### Temporal Goals
 We now explore Goal-Directed Exploration with a Reinforcement Learning Algorithm. This means that an agent has to learn a policy to reach a goal state in an initially unknown state space. Once the reinforcement learning problem reaches the goal state the agent has to find some path to a goal state in an initially unknown (or partially known) state space with no need to find the shortest path. 
 The idea is using a set of temporal goals in order to reach the final goal. It is possible to consider a set of temporal goals expressed in LTL$$ _f$$  notation.
 
-#### Reward Shaping
+##### Reward Shaping
 Reward shaping is a method for engineering a reward function in order to provide more frequent feedback on appropriate behaviors.
 The reward shaping in RL consist of supplying additional rewards to a learning agent to guide its learning process more efficiently, helping it in achieving the optimal policy faster. The reward shaping  function can be integrated in the MDP, $$ M=(S, A, T, \gamma, R)$$ , modifying its reward function, $$ R$$ , as $$ R' = R + F $$  where $$ F: S \times A \times S \Rightarrow \mathbb{R}$$  is a bounded real-valued function. Then  if the original MDP would have received a reward $$ R(s,a,s')$$  for transitioning from $$ s$$  to $$ s'$$  on an action $$ a$$  then in the new MDP it would receive the following reward:
 $$  R'(s,a,s')=R(s,a,s')+F(s,a,s') $$ 
 This process will encourage the learner to take the action $$ a$$  in some set of states $$ S_0$$  leading faster to the optimal solution.
 
-### Restraining Bolts
+#### Restraining Bolts
 A restraining bolt is a device that restricts an agent’s actions when connected to its system. The restraining bolt has the aim of limiting actions to a set of desired behaviors. The restraining bolt gives an additional representation of the world with respect to the one that the agent already has. The agent has to conform as much as possible to the restraining specifications.
 The link between the two representation is given by studying this problem in the Reinforcement Learning scope.
 
@@ -66,12 +66,12 @@ In a RL task with restraining bolt:
 -  The learning agent is modeled by the MDP: $$ M_{ag} = \langle S, A, T_{r_{ag}}, R_{ag} \rangle$$ 
 -  The restraining bolt is modeled as $$ RB = \langle L,\;\{(\phi_i,\; r_i)\}^m_{i=1} \rangle$$ , where $$ L$$  is the set of possible fluents and the set is the restraining specifications represented in LTL$$ _f$$  formulas.
 
-### Automata as Reward Shaping
+#### Automata as Reward Shaping
 A Reward Machine indicates what reward function should be used to obtain a reward signal given the states label that the agent met up until now. 
 The idea is to approximate the cumulative discounted reward in any RM state by treating the RM itself as an MDP. The value iteration would be the maximum value of the optimal policy. 
 
 
-## Temporal Logic
+### Temporal Logic
 Temporal Logic (TL) is a logic language that offers some time-related rules and operators to deal with propositions in which truth varies with time. Its complex syntax involves the introduction, along with the classical connectives $$ \neg, \land, \lor$$ , of two shared operators:
 
 
@@ -80,7 +80,7 @@ Temporal Logic (TL) is a logic language that offers some time-related rules and 
 
 This semantic representation allows also simple graphical representations based on graphs.
 
-### LTL$$ _f$$ 
+#### LTL$$ _f$$ 
 Linear Temporal Logic (LTL) is an extention of TL which is characterized by the formulation of a wider set of operators:
 
 
@@ -93,7 +93,7 @@ Linear Temporal Logic (LTL) is an extention of TL which is characterized by the 
 Finally, the complete description of evolution over time, consisting in a sequence of propositional interpretations, one for each time point, is called <em>trace</em> and a formula's truth is evaluated over that trace.
 For the standard LTL semantics, traces are infinite.
 
-### DFA
+#### DFA
 A Deterministic Finite Automaton (DFA) is an abstract representation shaped as a finite state machine that takes a string of symbols as input and, running through a sequence of states, may accept or reject it.
 
 More in depth, a DFA is defined as:
@@ -107,7 +107,7 @@ with:
 -  $$ F \subseteq S$$ : the set of <em>accepting states</em>,
 -  $$ \rho: S \times \Sigma \rightarrow S$$ : a <em>transition function</em>.
 
-## STRIPS
+### STRIPS
 The STanford Research Institute Problem Solver (STRIPS) is a problem solver that aims to find the optimal composition of operators that transforms a given initial world model/state into one that satisfies some stated goal condition, if reachable. The operators are the basic elements from which a solution is built. The problem space for STRIPS is defined by a quadruple
 $$ \Pi = \langle P, O, I, G  \rangle$$ 
 where: 
