@@ -16,6 +16,7 @@
 
 2. [Our experiments](#our-experiments)
 3. [Results](#results)
+
     - [Base environment goal](#base-environment-goal)
     - [Pass through center goal](#pass-through-center-goal)
     - [Pass through 1 corner goal](#pass-through-1-corner-goal)
