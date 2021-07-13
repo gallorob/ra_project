@@ -119,24 +119,7 @@ where:
 
 The optimal path $$ \pi_{opt}$$  that can be obtained is the path with the lowest possible cost. The cost is defined as $$ c(x_t,u_t)$$ , where $$ x_t$$  and $$ u_t$$  are the Markovian system state and action at the time step $$ t \in [1, T]$$ , respectively. This means that there exists neither path nor plan $$ \pi'$$  such that $$ c(\pi') < c(\pi_{opt})$$ .
 
-It is possible to translate the STRIPS domain into an equivalent LTL$$ _f$$  formula. This is accomplished by the following steps:
-1.  Define the STRIPS domain as the aforementioned set using fluents.
-2.  Convert STRIPS domain into a LTL$$ _f$$  formula; this process is executed in three steps
-3.  Each action $$ A \in Act$$  defines:        
-    1.  a precondition $$ \varphi$$ ,
-    2.  the <em>add</em> effects $$ \bigwedge_{F\in Add(A)} F$$  and
-    3.  the <em>del</em> effects $$ \bigwedge_{F\in Del(A)} \lnot F$$ .
-        
-    We can express in LTL$$ _f$$  each of these properties:
-        
-    4.  Satisfy precondition to execute the action: $$  \Box ( \circ A \rightarrow \varphi)$$ 
-    5.  Satisfy effects after the action is executed: $$  \Box ( \circ A \rightarrow \circ(\bigwedge_{F\in Add(A)} F \land \bigwedge_{F\in Del(A)} \lnot F) $$ 
-    6.  Ensure any other fluent that is not changed by the action remains unaltered: $$  \Box (\circ A \rightarrow \bigwedge_{F \notin Add(A) \cup Del(A)}(F \equiv \circ F) $$ 
-        
-    Additionally, since we want that only one action can be executed per step, we also have $$  \Box ( ( \bigvee_{A\in Act} A) \land (\bigwedge_{A_i, A_j \in Act, A_i \neq A_j} A_i \rightarrow \lnot A_j)) $$ 
-    
-4.  Encode the initial propositions $$ F \in Init$$   that are initially <em>True</em>: $$  \bigwedge_{F\in Init} F \land \bigwedge_{F\notin init} \lnot F $$ 
-5.  State the goal function, defined as $$ \varphi_g$$  as $$ \diamond \varphi_g$$ , requiring that eventually its fluents hold.
+It is possible to translate the STRIPS domain into an equivalent LTL$$ _f$$  formula. 
 
 Once we have expressed the STRIPS domain in a LTL$$ _f$$  formula, it is possible to convert such formula in DFA to obtain the corresponding automaton.
 
@@ -188,6 +171,10 @@ We report here the results of our experiments. Each experiment consists in train
 
 ### Base environment goal
 We found that the agent reliably clears the environment, obtaining the temporal goal reward consistently during training and during testing, where the episodic reward is higher than the temporal goal reward (set at 100) and varies only on the number of steps taken by the agent. We report the graphs for this experiment at Fig. \ref{fig:base_env_goal}.
+
+<p align="center">
+<img src="./code/ltlf/results/Train rewards env_base (reward shaping).png" alt="alt_title" height="250"/>
+</p>
 
 When reward shaping is applied, we can see that the agent converges more rapidly to a stable high reward during training, though it also increases the frequency of failed episodes. During testing, however, the learned Q values are good enough that no episode failed. We report the graphs for this experiment at Fig. \ref{fig:base_env_goal_reward_shaping}.
 
