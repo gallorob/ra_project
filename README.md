@@ -2,6 +2,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 1.[Theory behind the project](#theory-behind-the-project)
+
     1. [Reinforcement Learning](#reinforcement-learning)
 
 # Theory behind the project
