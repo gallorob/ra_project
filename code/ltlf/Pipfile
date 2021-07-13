@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+temprl = {git = "https://github.com/sapienza-rl/temprl.git",ref = "58fa048ec3111ab2625c517fa667b57cf7d71086"}
+pythomata = "==0.2.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
