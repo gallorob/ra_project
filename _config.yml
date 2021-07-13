@@ -1,7 +1,7 @@
 theme: jekyll-theme-time-machine
 
 title: Reasoning Agents Project Website
-description:
+description: RA project website
 permalink: /:year/:month/:day/:title/
 
 show_downloads: "true"
