@@ -1,6 +1,25 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
 ### Abstract
 We present here our work investigating the effects of Reward Shaping on a Hierarchical Reinforcement Learning (HRL) environment while specifying increasingly complex temporal goals defined as LTL$$ _f$$  formulas. Thanks to the flexibility of the LTL$$ _f$$  language, it is trivial to define such goals and, thanks to existing Python libraries, convert them to DFA automatons that work best with RL tasks.
 
@@ -173,8 +192,12 @@ We report here the results of our experiments. Each experiment consists in train
 We found that the agent reliably clears the environment, obtaining the temporal goal reward consistently during training and during testing, where the episodic reward is higher than the temporal goal reward (set at 100) and varies only on the number of steps taken by the agent. We report the graphs for this experiment at Fig. \ref{fig:base_env_goal}.
 
 <p align="center">
+<div class="column">
 <img src="./code/ltlf/results/Train rewards env_base (reward shaping).png" alt="alt_title" height="250"/>
+</div>
+<div class="column">
 <img src="./code/ltlf/results/Test rewards env_base.png" alt="alt_title" height="250"/>
+</div>
 </p>
 
 When reward shaping is applied, we can see that the agent converges more rapidly to a stable high reward during training, though it also increases the frequency of failed episodes. During testing, however, the learned Q values are good enough that no episode failed. We report the graphs for this experiment at Fig. \ref{fig:base_env_goal_reward_shaping}.
