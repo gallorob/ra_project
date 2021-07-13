@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+logaut = "*"
+temprl = {ref = "develop", git = "https://github.com/whitemech/temprl.git"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

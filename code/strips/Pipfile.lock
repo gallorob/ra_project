@@ -1,0 +1,77 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "53d8bd69cf5c36c6c5538feea2427583bf1c72725fa11982e4c8dfeb15d04947"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.8"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "graphviz": {
+            "hashes": [
+                "sha256:3cad5517c961090dfc679df6402a57de62d97703e2880a1a46147bb0dc1639eb",
+                "sha256:d2d25af1c199cad567ce4806f0449cb74eb30cf451fd7597251e1da099ac6e57"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
+            "version": "==0.16"
+        },
+        "lark-parser": {
+            "hashes": [
+                "sha256:e29ca814a98bb0f81674617d878e5f611cb993c19ea47f22c80da3569425f9bd"
+            ],
+            "version": "==0.11.3"
+        },
+        "logaut": {
+            "hashes": [
+                "sha256:18ff1f9f37c73c38fe75d1967dfa9f556610b6e0c7a54917844fff6e6b998343",
+                "sha256:1b20c6c5e9c38aaf7b0d319de3429f57f29f2f1d0ed08a4b7d7014189654f9b2"
+            ],
+            "index": "pypi",
+            "version": "==0.1.1"
+        },
+        "mpmath": {
+            "hashes": [
+                "sha256:604bc21bd22d2322a177c73bdb573994ef76e62edd595d17e00aff24b0667e5c",
+                "sha256:79ffb45cf9f4b101a807595bcb3e72e0396202e0b1d25d689134b48c4216a81a"
+            ],
+            "version": "==1.2.1"
+        },
+        "pylogics": {
+            "hashes": [
+                "sha256:3a31e91536a3e17241e8870bffa4187fd2d9fa2560f54e3e02f80483926d2a86",
+                "sha256:48f81ef440b8f95ca19c2e2e29521fa9315f7cc59602f47d8ac4ff89547a0803"
+            ],
+            "markers": "python_version >= '3.7' and python_version < '4.0'",
+            "version": "==0.1.0"
+        },
+        "pythomata": {
+            "hashes": [
+                "sha256:10a31e6fffed84f1eacdf8820b9f3af5a7dbaf329d936bf7c4618f464b22fed5",
+                "sha256:b6e1a4bb2ba9bff2f7f0e9b3f357d512b4a633bfd9ba8f63a59d89556396f784"
+            ],
+            "version": "==0.3.2"
+        },
+        "sympy": {
+            "hashes": [
+                "sha256:1ca588a9f6ce6a323c5592f9635159c2093572826668a1022c75c75bdf0297cb",
+                "sha256:3b0b3776e357f789951bb14776c6a841f931680f20d5f8fe55977885657c9b7a"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==1.8"
+        },
+        "temprl": {
+            "git": "https://github.com/whitemech/temprl.git",
+            "ref": "cc407a8662c2d6dfe2a5724de7987030b8963203"
+        }
+    },
+    "develop": {}
+}

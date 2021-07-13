@@ -1,0 +1,212 @@
+digraph {
+	init -> "d_at_b
+p_at_r" [label=start]
+	init -> "d_at_r
+p_at_g" [label=start]
+	init -> "d_at_y
+p_at_y" [label=start]
+	init -> "d_at_r
+p_at_y" [label=start]
+	init -> "d_at_r
+p_at_r" [label=start]
+	init -> "d_at_g
+p_at_y" [label=start]
+	init -> "d_at_g
+p_at_b" [label=start]
+	init -> "d_at_y
+p_at_b" [label=start]
+	init -> sink [label=else]
+	init -> "d_at_g
+p_at_r" [label=start]
+	init -> "d_at_g
+p_at_g" [label=start]
+	init -> "d_at_b
+p_at_b" [label=start]
+	init -> "d_at_y
+p_at_g" [label=start]
+	init -> "d_at_y
+p_at_r" [label=start]
+	init -> "d_at_b
+p_at_y" [label=start]
+	init -> "d_at_b
+p_at_g" [label=start]
+	init -> "d_at_r
+p_at_b" [label=start]
+	"d_at_r
+p_at_b" -> "d_at_r
+p_on_t" [label=pickup_b]
+	"d_at_r
+p_at_b" -> sink [label=else]
+	"d_at_r
+p_on_t" -> "d_at_r
+p_at_r" [label=dropoff_r]
+	"d_at_r
+p_on_t" -> "d_at_r
+p_at_b" [label=dropoff_b]
+	"d_at_r
+p_on_t" -> "d_at_r
+p_at_y" [label=dropoff_y]
+	"d_at_r
+p_on_t" -> sink [label=else]
+	"d_at_r
+p_on_t" -> "d_at_r
+p_at_g" [label=dropoff_g]
+	"d_at_b
+p_at_g" -> sink [label=else]
+	"d_at_b
+p_at_g" -> "d_at_b
+p_on_t" [label=pickup_g]
+	"d_at_b
+p_on_t" -> "d_at_b
+p_at_r" [label=dropoff_r]
+	"d_at_b
+p_on_t" -> sink [label=else]
+	"d_at_b
+p_on_t" -> "d_at_b
+p_at_y" [label=dropoff_y]
+	"d_at_b
+p_on_t" -> "d_at_b
+p_at_g" [label=dropoff_g]
+	"d_at_b
+p_on_t" -> "d_at_b
+p_at_b" [label=dropoff_b]
+	"d_at_b
+p_at_y" -> sink [label=else]
+	"d_at_b
+p_at_y" -> "d_at_b
+p_on_t" [label=pickup_y]
+	"d_at_y
+p_at_r" -> "d_at_y
+p_on_t" [label=pickup_r]
+	"d_at_y
+p_at_r" -> sink [label=else]
+	"d_at_y
+p_on_t" -> "d_at_y
+p_at_g" [label=dropoff_g]
+	"d_at_y
+p_on_t" -> sink [label=else]
+	"d_at_y
+p_on_t" -> "d_at_y
+p_at_y" [label=dropoff_y]
+	"d_at_y
+p_on_t" -> "d_at_y
+p_at_b" [label=dropoff_b]
+	"d_at_y
+p_on_t" -> "d_at_y
+p_at_r" [label=dropoff_r]
+	"d_at_y
+p_at_g" -> sink [label=else]
+	"d_at_y
+p_at_g" -> "d_at_y
+p_on_t" [label=pickup_g]
+	"d_at_b
+p_at_b" -> "d_at_b
+p_on_t" [label=pickup_b]
+	"d_at_b
+p_at_b" -> sink [label=else]
+	"d_at_b
+p_on_t" -> sink [label=else]
+	"d_at_b
+p_at_g" -> sink [label=else]
+	"d_at_b
+p_at_y" -> sink [label=else]
+	"d_at_b
+p_at_r" -> sink [label=else]
+	"d_at_b
+p_at_r" -> "d_at_b
+p_on_t" [label=pickup_r]
+	"d_at_g
+p_at_g" -> sink [label=else]
+	"d_at_g
+p_at_g" -> "d_at_g
+p_on_t" [label=pickup_g]
+	"d_at_g
+p_on_t" -> "d_at_g
+p_at_b" [label=dropoff_b]
+	"d_at_g
+p_on_t" -> "d_at_g
+p_at_g" [label=dropoff_g]
+	"d_at_g
+p_on_t" -> "d_at_g
+p_at_y" [label=dropoff_y]
+	"d_at_g
+p_on_t" -> "d_at_g
+p_at_r" [label=dropoff_r]
+	"d_at_g
+p_on_t" -> sink [label=else]
+	"d_at_g
+p_at_r" -> "d_at_g
+p_on_t" [label=pickup_r]
+	"d_at_g
+p_at_r" -> sink [label=else]
+	"d_at_g
+p_at_y" -> "d_at_g
+p_on_t" [label=pickup_y]
+	"d_at_g
+p_at_y" -> sink [label=else]
+	"d_at_g
+p_at_b" -> "d_at_g
+p_on_t" [label=pickup_b]
+	"d_at_g
+p_at_b" -> sink [label=else]
+	"d_at_g
+p_at_r" -> sink [label=else]
+	"d_at_g
+p_on_t" -> sink [label=else]
+	"d_at_y
+p_at_b" -> "d_at_y
+p_on_t" [label=pickup_b]
+	"d_at_y
+p_at_b" -> sink [label=else]
+	"d_at_g
+p_at_b" -> sink [label=else]
+	"d_at_g
+p_at_y" -> sink [label=else]
+	"d_at_r
+p_at_r" -> "d_at_r
+p_on_t" [label=pickup_r]
+	"d_at_r
+p_at_r" -> sink [label=else]
+	"d_at_r
+p_on_t" -> sink [label=else]
+	"d_at_r
+p_at_g" -> sink [label=else]
+	"d_at_r
+p_at_g" -> "d_at_r
+p_on_t" [label=pickup_g]
+	"d_at_r
+p_at_b" -> sink [label=else]
+	"d_at_r
+p_at_y" -> "d_at_r
+p_on_t" [label=pickup_y]
+	"d_at_r
+p_at_y" -> sink [label=else]
+	"d_at_r
+p_at_y" -> sink [label=else]
+	"d_at_y
+p_at_y" -> "d_at_y
+p_on_t" [label=pickup_y]
+	"d_at_y
+p_at_y" -> sink [label=else]
+	"d_at_y
+p_on_t" -> sink [label=else]
+	"d_at_y
+p_at_r" -> sink [label=else]
+	"d_at_y
+p_at_b" -> sink [label=else]
+	"d_at_y
+p_at_g" -> sink [label=else]
+	"d_at_r
+p_at_g" -> sink [label=else]
+	"d_at_b
+p_at_r" -> sink [label=else]
+	init [shape=doublecircle]
+	"d_at_y
+p_at_y" [shape=doublecircle]
+	"d_at_r
+p_at_r" [shape=doublecircle]
+	"d_at_g
+p_at_g" [shape=doublecircle]
+	"d_at_b
+p_at_b" [shape=doublecircle]
+}

@@ -1,0 +1,3 @@
+temprl==0.3.0
+pythomata==0.3.2
+logaut==0.1.1
