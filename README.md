@@ -3,7 +3,7 @@
 
 1.[Theory behind the project](#theory-behind-the-project)
 
-    1. [Reinforcement Learning](#reinforcement-learning)
+- [Reinforcement Learning](#reinforcement-learning)
 
 # Theory behind the project
 
