@@ -29,6 +29,7 @@ We also investigate the possibility to discard the LTL$$_f$$ goals and instead r
     - [Pass through 3 corners goal](#pass-through-3-corners-goal)
     - [Pass through 4 corners goal](#pass-through-4-corners-goal)
     - [STRIPS-based TG](#strips-based-tg)
+4. [References](#references)
 
 
 # Theory behind the project
