@@ -322,4 +322,19 @@ The rewards graph is very similar to that of the base environment goal with rewa
 
 # References
 
-{% bibliography --cited --file _bibliography/bibliography.bib  %}
+1. OpenAI: Ai research and deployment company
+2. OpenAI: Gym, reinforcement learning toolkit
+3. Dietterich, T.G.: Hierarchical reinforcement learning with the maxq value functiondecomposition. Journal of Artificial Intelligence Research13(1) (2000)
+4. Hengst, B.  In: Hierarchical Reinforcement Learning. Springer US, Boston, MA(2010) 495–502
+5. Koenig, S., Simmons, R.G.: The effect of representation and knowledge on goal-directed exploration with reinforcement-learning algorithms.  Machine Learning22(1) (Mar 1996) 227–250
+6. E., W. In: Hierarchical Reinforcement Learning. Springer US, Boston, MA (2011)
+7. Andrew Y Ng, D.H., Russell, S.: Policy invariance under reward transformations:Theory and application to reward shaping (1999)
+8. Giacomo, G.D., Iocchi, L., Favorito, M., Patrizi, F.: Foundations for restrainingbolts: Reinforcement learning with ltlf/ldlf restraining specifications (2019)
+9. Camacho, A., Toro Icarte, R., Klassen, T.Q., Valenzano, R., McIlraith, S.A.: Ltland beyond: Formal languages for reward function specification in reinforcementlearning.  In: Proceedings of the Twenty-Eighth International Joint Conferenceon Artificial Intelligence, IJCAI-19, International Joint Conferences on ArtificialIntelligence Organization (7 2019) 6065–6073
+10. Pnueli, A.: The temporal logic of programs. In: 2013 IEEE 54th Annual Symposiumon Foundations of Computer Science, Los Alamitos, CA, USA, IEEE ComputerSociety (oct 1977) 46–57
+11. De Giacomo, G., Vardi, M.Y.: Linear temporal logic and linear dynamic logic onfinite traces. In: Proceedings of the Twenty-Third International Joint Conferenceon Artificial Intelligence. IJCAI ’13, AAAI Press (2013) 854–860
+12. Fikes, R.E., Nilsson, N.J.: Strips: A new approach to the application of theoremproving to problem solving. Artificial Intelligence2(3) (1971) 189–208
+13. Harris, C.R., Millman, K.J., van der Walt, S.J., Gommers, R., Virtanen, P., Cour-napeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N.J., Kern, R., Picus, M.,Hoyer, S., van Kerkwijk, M.H., Brett, M., Haldane, A., del Río, J.F., Wiebe, M.,Peterson, P., Gérard-Marchant, P., Sheppard, K., Reddy, T., Weckesser, W., Ab-basi, H., Gohlke, C., Oliphant, T.E.: Array programming with NumPy. Nature585(7825) (September 2020) 357–362
+14. Favorito, M.: Logaut (v0.1.1) (2021)
+15. Favorito, M., Fuggitti, F.: Lydia (v0.1.2) (2021)
+16. Favorito, M.: Temprl (v0.3.0) (2021)

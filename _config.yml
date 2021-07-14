@@ -5,9 +5,3 @@ description: "Website version of the project report"
 permalink: /:year/:month/:day/:title/
 
 show_downloads: "false"
-plugins: ['jekyll/scholar']
-
-scholar:
-  style: modern-language-association
-  source: _bibliography
-  bibliography: bibliography.bib
