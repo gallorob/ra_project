@@ -319,3 +319,7 @@ We ran the training for just 1500 steps as it rapidly converged to a solution.
 </p>
 
 The rewards graph is very similar to that of the base environment goal with reward shaping, reported in Fig 15. The agent learned a good policy that solved both the base environment goal and the temporal goal (though, as previously stated, these two coincide) and obtained a high-enough score in the test phase.
+
+# References
+
+{% bibliography %}
