@@ -322,4 +322,4 @@ The rewards graph is very similar to that of the base environment goal with rewa
 
 # References
 
-{% bibliography %}
+{% bibliography --cited --file _bibliography/bibliography.bib  %}

@@ -6,13 +6,8 @@ permalink: /:year/:month/:day/:title/
 
 show_downloads: "false"
 plugins: ['jekyll/scholar']
+
 scholar:
   style: modern-language-association
-  locale: en
-
-  sort_by: none
-  order: ascending
-
+  source: _bibliography
   bibliography: bibliography.bib
-
-  query: "@*"
