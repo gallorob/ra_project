@@ -47,10 +47,6 @@ available_goals = {
     'through_3corners': {
         'formula': 'a U (b U (c U (d U (e U f))))',
         'fluent_extractor': pass_through_3_corners
-    },
-    'through_4corners': {
-        'formula': 'a U (b U (c U (d U (e U (f U g)))))',
-        'fluent_extractor': pass_through_4_corners
     }
 }
 
@@ -86,7 +82,7 @@ def my_fluent_extractor(obs: int,
 
 
 def make_env_from_dfa(dfa: DFA,
-                      goal_reward: float = 100.0,
+                      goal_reward: float = 5000.0,
                       reward_shaping: bool = True) -> gym.Env:
     """
     Make the environment.
@@ -125,7 +121,7 @@ def plot_rewards(rewards: List[int],
 
     fig, ax = plt.subplots()
     plt.title(title)
-    ax.plot(rewards, '-', label=f'Rewards', linewidth=2, color='#33ccff')
+    ax.plot(rewards, '-', label=f'Rewards', linewidth=1, color='#33ccff')
     plt.xlabel('Steps')
     plt.ylabel('Rewards')
     fig.legend(loc='center right')
@@ -157,7 +153,7 @@ def run_learner(seed: int,
     parsed_formula = parser(formula)
     dfa = parsed_formula.to_automaton()
 
-    dfa_dot_file = os.path.join("../dfa_graph")
+    dfa_dot_file = os.path.join(f"../results/{selected_goal}")
     dfa.to_dot(dfa_dot_file)
 
     tgw = make_env_from_dfa(dfa, reward_shaping=reward_shaping)
@@ -167,21 +163,21 @@ def run_learner(seed: int,
         Q = load_Q(name=q_name,
                    n=env.action_space.n)
     else:
-        Q, rewards = q_function_learn(tgw, nb_episodes=n_eps)
+        Q, train_rewards = q_function_learn(tgw, nb_episodes=n_eps, eps=0.9)
         save_Q(Q=Q)
-        plot_rewards(rewards=rewards,
-                     title=f'Train rewards {selected_goal} More steps' + (
+        plot_rewards(rewards=train_rewards,
+                     title=f'Train rewards {selected_goal}' + (
                          ' (reward shaping)' if reward_shaping else ''))
 
     # test Q learning
     results = q_function_test(tgw, Q)
     plot_rewards(rewards=results.get('episodic_rewards'),
-                 title=f'Test rewards {selected_goal} More steps' + (' (reward shaping)' if reward_shaping else ''))
+                 title=f'Test.png rewards {selected_goal}' + (' (reward shaping)' if reward_shaping else ''))
 
     t = datetime.now()
 
     # nicer printout of results
-    with open(f"test_{t.strftime('%Y%m%d%H%M%S')}.log", 'w') as f:
+    with open(f"../results/test_{t.strftime('%Y%m%d%H%M%S')}.log", 'w') as f:
         f.write(f'Tests for {selected_goal}: {formula}\n')
         f.write(f'Reward shaping: {reward_shaping}\n')
         f.write(f'N steps: {n_eps}\n')
@@ -192,10 +188,17 @@ def run_learner(seed: int,
             for s, r in zip(states, rewards):
                 f.write(f'{s}Reward: {r}\n')
                 tot_reward += r
-                f.write(f'Episode ended; total reward: {tot_reward}\n')
-    print('Test results saved to log file.')
+            f.write(f'Episode ended; total reward: {tot_reward}\n')
+    print('Test.png results saved to log file.')
 
     tgw.close()
+
+    import json
+    with open(f'../results/{selected_goal}' + (' (reward shaping)' if reward_shaping else '') + '.json', 'w') as f:
+        json.dump({
+            'train_rewards': train_rewards,
+            'test_rewards': results.get('episodic_rewards')
+        }, f)
 
 
 if __name__ == '__main__':
@@ -214,8 +217,73 @@ if __name__ == '__main__':
                         help='Toggle reward shaping (default: False)')
     args = parser.parse_args()
 
-    run_learner(seed=args.random_seed,
-                n_eps=args.n_episodes,
-                q_name=args.q_values,
-                selected_goal=args.goal,
-                reward_shaping=args.reward_shaping)
+    # run_learner(seed=args.random_seed,
+    #             n_eps=args.n_episodes,
+    #             q_name=args.q_values,
+    #             selected_goal=args.goal,
+    #             reward_shaping=args.reward_shaping)
+
+    # print(f'Running env_base with no Reward Shaping...')
+    # run_learner(seed=42,
+    #             n_eps=50000,
+    #             q_name=None,
+    #             selected_goal='env_base',
+    #             reward_shaping=False)
+    # print(f'Running env_base with Reward Shaping...')
+    # run_learner(seed=42,
+    #             n_eps=50000,
+    #             q_name=None,
+    #             selected_goal='env_base',
+    #             reward_shaping=True)
+    #
+    # print(f'Running through_center with no Reward Shaping...')
+    # run_learner(seed=42,
+    #             n_eps=50000,
+    #             q_name=None,
+    #             selected_goal='through_center',
+    #             reward_shaping=False)
+    # print(f'Running through_center with Reward Shaping...')
+    # run_learner(seed=42,
+    #             n_eps=50000,
+    #             q_name=None,
+    #             selected_goal='through_center',
+    #             reward_shaping=True)
+    #
+    # print(f'Running through_1corner with no Reward Shaping...')
+    # run_learner(seed=42,
+    #             n_eps=50000,
+    #             q_name=None,
+    #             selected_goal='through_1corner',
+    #             reward_shaping=False)
+    # print(f'Running through_1corner with Reward Shaping...')
+    # run_learner(seed=42,
+    #             n_eps=50000,
+    #             q_name=None,
+    #             selected_goal='through_1corner',
+    #             reward_shaping=True)
+
+    # print(f'Running through_2corners with no Reward Shaping...')
+    # run_learner(seed=42,
+    #             n_eps=50000,
+    #             q_name=None,
+    #             selected_goal='through_2corners',
+    #             reward_shaping=False)
+    # print(f'Running through_2corners with Reward Shaping...')
+    # run_learner(seed=42,
+    #             n_eps=50000,
+    #             q_name=None,
+    #             selected_goal='through_2corners',
+    #             reward_shaping=True)
+
+    print(f'Running through_3corners with no Reward Shaping...')
+    run_learner(seed=42,
+                n_eps=50000,
+                q_name=None,
+                selected_goal='through_3corners',
+                reward_shaping=False)
+    print(f'Running through_3corners with Reward Shaping...')
+    run_learner(seed=42,
+                n_eps=50000,
+                q_name=None,
+                selected_goal='through_3corners',
+                reward_shaping=True)

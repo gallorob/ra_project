@@ -28,6 +28,17 @@ import gym
 import numpy as np
 
 
+class History:
+    def __init__(self):
+        self.fluent = None
+
+    def reset(self):
+        self.fluent = None
+
+
+history = History()
+
+
 def q_function_learn(
     env: gym.Env, nb_episodes=100, alpha=0.1, eps=0.1, gamma=0.9
 ) -> Tuple[dict, List[int]]:
@@ -58,6 +69,7 @@ def q_function_learn(
 
     for _ in range(nb_episodes):
         state = env.reset()
+        history.reset()
         done = False
         episodic_reward = 0
         while not done:
@@ -77,7 +89,7 @@ def q_function_test(
     env: gym.Env, Q: Dict[Any, np.ndarray], nb_episodes=10
 ) -> np.ndarray:
     """
-    Test a Q-function against a Gym env.
+    Test.png a Q-function against a Gym env.
 
     :param env: the environment
     :param Q: the action-value function
@@ -94,6 +106,7 @@ def q_function_test(
             'rewards': []
         }
         state = env.reset()
+        history.reset()
         total_reward = 0
         done = False
         while not done:

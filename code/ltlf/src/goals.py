@@ -1,3 +1,6 @@
+from utils.qlearning import history
+
+
 def env_base_goal(taxi_row, taxi_col, passenger_location, destination, pos_to_colors, idx_colors) -> str:
     fluent = ''
     # a : Taxi with no passenger, anywhere
@@ -6,15 +9,18 @@ def env_base_goal(taxi_row, taxi_col, passenger_location, destination, pos_to_co
 
     # passenger at right location - goal reached
     if passenger_location == destination and pos_to_colors[(taxi_row, taxi_col)] == idx_colors[destination]:
-        fluent = 'c'
+        if history.fluent == 'b':
+            history.fluent = 'c'
     # passenger on taxi
     elif passenger_location == 4:  # taxi at destination
-        fluent = 'b'
+        if history.fluent == 'a':
+            history.fluent = 'b'
     # passenger not on taxi
     else:
-        fluent = 'a'
+        if not history.fluent:
+            history.fluent = 'a'
 
-    return fluent
+    return history.fluent
 
 
 def pass_through_center(taxi_row, taxi_col, passenger_location, destination, pos_to_colors, idx_colors) -> str:
@@ -26,53 +32,22 @@ def pass_through_center(taxi_row, taxi_col, passenger_location, destination, pos
 
     # passenger at right location - goal reached
     if passenger_location == destination and pos_to_colors[(taxi_row, taxi_col)] == idx_colors[destination]:
-        fluent = 'd'
+        if history.fluent == 'c':
+            history.fluent = 'd'
     # passenger on taxi on the middle
     elif passenger_location == 4 and (taxi_row, taxi_col) == (2, 2):
-        fluent = 'c'
+        if history.fluent == 'b':
+            history.fluent = 'c'
     # passenger on taxi
     elif passenger_location == 4:  # taxi at destination
-        fluent = 'b'
+        if history.fluent == 'a':
+            history.fluent = 'b'
     # passenger not on taxi
     else:
-        fluent = 'a'
+        if not history.fluent:
+            history.fluent = 'a'
 
-    return fluent
-
-
-def pass_through_4_corners(taxi_row, taxi_col, passenger_location, destination, pos_to_colors, idx_colors) -> str:
-    fluent = ''
-    # a : Taxi with no passenger, anywhere
-    # b : Taxi with passenger, not on destination
-    # c : Taxi with passenger on Red
-    # d : Taxi with passenger on Green
-    # e : Taxi with passenger on Yellow
-    # f : Taxi with passenger on Blue
-    # g : Taxi with passenger on destination
-
-    # passenger at right location - goal reached
-    if passenger_location == destination and pos_to_colors[(taxi_row, taxi_col)] == idx_colors[destination]:
-        fluent = 'g'
-    # passenger on taxi on Blue
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (4, 3):
-        fluent = 'f'
-    # passenger on taxi on Yellow
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (4, 0):
-        fluent = 'e'
-    # passenger on taxi on Green
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (0, 4):
-        fluent = 'd'
-    # passenger on taxi on Red
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (0, 0):
-        fluent = 'c'
-    # passenger on taxi
-    elif passenger_location == 4:  # taxi at destination
-        fluent = 'b'
-    # passenger not on taxi
-    else:
-        fluent = 'a'
-
-    return fluent
+    return history.fluent
 
 
 def pass_through_3_corners(taxi_row, taxi_col, passenger_location, destination, pos_to_colors, idx_colors) -> str:
@@ -84,26 +59,35 @@ def pass_through_3_corners(taxi_row, taxi_col, passenger_location, destination, 
     # e : Taxi with passenger on Yellow
     # f : Taxi with passenger on destination
 
+    corners = list(pos_to_colors.keys())
+    corners.remove([k for k, v in pos_to_colors.items() if v == idx_colors[destination]][0])
+
     # passenger at right location - goal reached
     if passenger_location == destination and pos_to_colors[(taxi_row, taxi_col)] == idx_colors[destination]:
-        fluent = 'f'
+        if history.fluent == 'e':
+            history.fluent = 'f'
     # passenger on taxi on Yellow
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (4, 0):
-        fluent = 'e'
+    elif passenger_location == 4 and (taxi_row, taxi_col) == corners[2]:
+        if history.fluent == 'd':
+            history.fluent = 'e'
     # passenger on taxi on Green
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (0, 4):
-        fluent = 'd'
+    elif passenger_location == 4 and (taxi_row, taxi_col) == corners[1]:
+        if history.fluent == 'c':
+            history.fluent = 'd'
     # passenger on taxi on Red
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (0, 0):
-        fluent = 'c'
+    elif passenger_location == 4 and (taxi_row, taxi_col) == corners[0]:
+        if history.fluent == 'b':
+            history.fluent = 'c'
     # passenger on taxi
     elif passenger_location == 4:  # taxi at destination
-        fluent = 'b'
+        if history.fluent == 'a':
+            history.fluent = 'b'
     # passenger not on taxi
     else:
-        fluent = 'a'
+        if not history.fluent:
+            history.fluent = 'a'
 
-    return fluent
+    return history.fluent
 
 
 def pass_through_2_corners(taxi_row, taxi_col, passenger_location, destination, pos_to_colors, idx_colors) -> str:
@@ -114,23 +98,31 @@ def pass_through_2_corners(taxi_row, taxi_col, passenger_location, destination, 
     # d : Taxi with passenger on Green
     # e : Taxi with passenger on destination
 
+    corners = list(pos_to_colors.keys())
+    corners.remove([k for k, v in pos_to_colors.items() if v == idx_colors[destination]][0])
+
     # passenger at right location - goal reached
     if passenger_location == destination and pos_to_colors[(taxi_row, taxi_col)] == idx_colors[destination]:
-        fluent = 'e'
+        if history.fluent == 'd':
+            history.fluent = 'e'
     # passenger on taxi on Green
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (0, 4):
-        fluent = 'd'
+    elif passenger_location == 4 and (taxi_row, taxi_col) == corners[1]:
+        if history.fluent == 'c':
+            history.fluent = 'd'
     # passenger on taxi on Red
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (0, 0):
-        fluent = 'c'
+    elif passenger_location == 4 and (taxi_row, taxi_col) == corners[0]:
+        if history.fluent == 'b':
+            history.fluent = 'c'
     # passenger on taxi
     elif passenger_location == 4:  # taxi at destination
-        fluent = 'b'
+        if history.fluent == 'a':
+            history.fluent = 'b'
     # passenger not on taxi
     else:
-        fluent = 'a'
+        if not history.fluent:
+            history.fluent = 'a'
 
-    return fluent
+    return history.fluent
 
 
 def pass_through_1_corner(taxi_row, taxi_col, passenger_location, destination, pos_to_colors, idx_colors) -> str:
@@ -140,17 +132,24 @@ def pass_through_1_corner(taxi_row, taxi_col, passenger_location, destination, p
     # c : Taxi with passenger on Red
     # d : Taxi with passenger on destination
 
+    corners = list(pos_to_colors.keys())
+    corners.remove([k for k, v in pos_to_colors.items() if v == idx_colors[destination]][0])
+
     # passenger at right location - goal reached
     if passenger_location == destination and pos_to_colors[(taxi_row, taxi_col)] == idx_colors[destination]:
-        fluent = 'd'
+        if history.fluent == 'c':
+            history.fluent = 'd'
     # passenger on taxi on Red
-    elif passenger_location == 4 and (taxi_row, taxi_col) == (0, 0):
-        fluent = 'c'
+    elif passenger_location == 4 and (taxi_row, taxi_col) == corners[0]:
+        if history.fluent == 'b':
+            history.fluent = 'c'
     # passenger on taxi
     elif passenger_location == 4:  # taxi at destination
-        fluent = 'b'
+        if history.fluent == 'a':
+            history.fluent = 'b'
     # passenger not on taxi
     else:
-        fluent = 'a'
+        if not history.fluent:
+            history.fluent = 'a'
 
-    return fluent
+    return history.fluent
