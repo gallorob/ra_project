@@ -297,7 +297,7 @@ This modified temporal goal is similar to the previous one and as such is still 
 Similarly to the previous goal, the addition of the reward shaping effect actually hinders performances: the training is still solved but the average episodic reward is much lower and some of the tests episode actually fail.
 
 <p align="center">
-<img src="./code/ltlf/results/plots/through_1corner/Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_1corner/Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
+<img src="code\ltlf\results\plots\through_1corner\Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="code\ltlf\results\plots\through_1corner\Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.11: Train and test rewards for the passing through 1 checkpoint goal with reward shaping</figcaption>
 </p>
 
@@ -311,7 +311,7 @@ The episodic rewards curve plateaus during training so we do not believe additio
 This modified temporal goal is more complex than the previous one but the agent is still able to obtain high rewards during training and testing. 
 
 <p align="center">
-<img src="./code/ltlf/results/plots/through_2corners/Training_Withoutrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_2corners/Test_Withoutrewardshaping.png" alt="alt_title" height = "200"/>
+<img src="code\ltlf\results\plots\through_2corners\Training_Withoutrewardshaping.png" alt="alt_title" height = "200"/> <img src="code\ltlf\results\plots\through_2corners\Test_Withoutrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.12: Train and test rewards for the passing through 2 checkpoints goal</figcaption>
 </p>
 
@@ -324,7 +324,7 @@ We note however that some of the tests fail or have a final rewards that consist
 The addition of the reward shaping leads to faster convergence during training but some of the tests still fail. 
 
 <p align="center">
-<img src="./code/ltlf/results/plots/through_2corners/Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_2corners/Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
+<img src="code\ltlf\results\plots\through_2corners\Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="code\ltlf\results\plots\through_2corners\Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.13: Train and test rewards for the passing through 2 checkpoints goal with reward shaping</figcaption>
 </p>
 
@@ -338,7 +338,7 @@ However, with reward shaping there is no episode in the test that is completed w
 This modified temporal goal is more complex than the previous one but the agent is still able to obtain high rewards during training and testing. 
 
 <p align="center">
-<img src="./code/ltlf/results/plots/through_3corners/Training_Withoutrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_3corners/Test_Withoutrewardshaping.png" alt="alt_title" height = "200"/>
+<img src="code\ltlf\results\plots\through_3corners\Training_Withoutrewardshaping.png" alt="alt_title" height = "200"/> <img src="code\ltlf\results\plots\through_3corners\Test_Withoutrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.14: Train and test rewards for the passing through 3 checkpoints goal</figcaption>
 </p>
 
@@ -351,7 +351,7 @@ While sometimes the agent solves the temporal goal along with the base environme
 The addition of the reward shaping does not improve the results. 
 
 <p align="center">
-<img src="./code/ltlf/results/plots/through_3corners/Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_3corners/Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
+<img src="code\ltlf\results\plots\through_3corners\Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="code\ltlf\results\plots\through_3corners\Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.15: Train and test rewards for the passing through 3 checkpoints goal with reward shaping</figcaption>
 </p>
 
@@ -373,7 +373,7 @@ We report the generated graph of the STRIPS problem.
 We ran the training for just 1500 steps as it rapidly converged to a solution.
 
 <p align="center">
-<img src="./code/strips/results/Training.png" alt="alt_title" height = "200"/> <img src="./code/strips/results/Test.png" alt="alt_title" height = "200"/>
+<img src="code\strips\results\Training.png" alt="alt_title" height = "200"/> <img src="code\strips\results\Test.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.17: Train and test rewards for the STRIPS-defined temporal goal.</figcaption>
 </p>
 
@@ -386,7 +386,7 @@ The rewards graph is similar to that of the base environment goal with reward sh
 To qualitatively measure possible overhead during training with the STRIPS approach, we evaluated a simple Q-Learning approach with the same hyper-parameters but no temporal goals. 
 
 <p align="center">
-<img src="./code/strips/results/no_tg/Training.png" alt="alt_title" height = "200"/> <img src="./code/strips/results/no_tg/Test.png" alt="alt_title" height = "200"/>
+<img src="code\strips\results\no_tg\Training.png" alt="alt_title" height = "200"/> <img src="code\strips\results\no_tg\Test.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.18: Train and test rewards for the base environment with no temporal goal.</figcaption>
 </p>
 
