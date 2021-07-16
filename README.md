@@ -158,15 +158,53 @@ We decided to test two categories of experiments:
 In the first category we tested the following formulae, ordered by increasing complexity:
 
 -  Base environment goal: $$  a\; \mathrm{U}\; (b\; \mathrm{U}\; c) $$ . In this goal we check first that there is a taxi anywhere in the map ($$ a$$ ), then that the passenger is picked up by the taxi ($$ b$$ ) and finally that the destination is reached ($$ c$$ ). Note that this is the equivalent goal of the environment, which we used as baseline to ensure the correctness of our solution.
+
+The generated DFA for this task is reported in the following figure:
+
+<p align="center">
+<img src="./code/ltlf/results/env_base.png" alt="alt_title" height = "200"/> 
+<figcaption aligh="center">Fig.1: The Base environment goal generated DFA</figcaption>
+</p>
+
 -  Pass through center: $$  a\; \mathrm{U}\; (b\; \mathrm{U}\; (c\; \mathrm{U}\; d)) $$ . In this goal first that there is a taxi anywhere in the map ($$ a$$ ), then that the passenger is picked up by the taxi ($$ b$$ ), that the taxi passes through the center of the map ($$ c$$ ) and finally that the destination is reached ($$ d$$ ).
--  Pass through 1 corner: $$  a\; \mathrm{U}\; (b\; \mathrm{U}\; (c\; \mathrm{U}\; d)) $$ . This goal is similar to the previous one, but instead of checking if the taxi passes through the center, we check that it passes through the $$ Red$$  corner before reaching the destination.
--  Pass through 2 corners: $$  a\; \mathrm{U}\; (b\; \mathrm{U}\; (c\; \mathrm{U}\; (d\; \mathrm{U}\; e))) $$ . This goal is similar to the previous one, but we check that it passes through $$ Green$$  corner after the $$ Red$$  one before reaching the destination.
--  Pass through 3 corners: $$  a\; \mathrm{U}\; (b\; \mathrm{U}\; (c\; \mathrm{U}\; (d\; \mathrm{U}\; (e\; \mathrm{U}\; f)))) $$ . This goal is similar to the previous one, but we check that it passes through $$ Yellow$$  corner after the $$ Green$$  one before reaching the destination.
--  Pass through 4 corners: $$  a\; \mathrm{U}\; (b\; \mathrm{U}\; (c\; \mathrm{U}\; (d\; \mathrm{U}\; (e\; \mathrm{U}\; (f\; \mathrm{U}\; g))))) $$ . This goal is similar to the previous one, but we check that it passes through $$ Blue$$  corner after the $$ Yellow$$  one before reaching the destination.
+
+The generated DFA for this task is reported in the following figure:
+
+<p align="center">
+<img src="./code/ltlf/results/through_center.png" alt="alt_title" height = "200"/> 
+<figcaption aligh="center">Fig.2: The Through center environment goal generated DFA</figcaption>
+</p>
+
+-  Pass through 1 checkpoint: $$ a\; \mathrm{U}\; (b\; \mathrm{U}\; (c\; \mathrm{U}\; d)) $$. This goal is similar to the previous one, but instead of checking if the taxi passes through the center, we check that it passes through a different checkpoint before reaching the destination.
+
+The generated DFA for this task is reported in the following figure:
+
+<p align="center">
+<img src="./code/ltlf/results/through_1corner.png" alt="alt_title" height = "200"/> 
+<figcaption aligh="center">Fig.3: The Through 1 checkpoint goal generated DFA</figcaption>
+</p>
+
+-  Pass through 2 checkpoints: $$ a\; \mathrm{U}\; (b\; \mathrm{U}\; (c\; \mathrm{U}\; (d\; \mathrm{U}\; e))) $$. This goal is similar to the previous one, but we check that it passes through two different checkpoints before reaching the destination.
+
+The generated DFA for this task is reported in the following figure:
+
+<p align="center">
+<img src="./code/ltlf/results/through_2corners.png" alt="alt_title" height = "200"/> 
+<figcaption aligh="center">Fig.4: The Through 2 checkpoints goal generated DFA</figcaption>
+</p>
+
+-  Pass through 3 checkpoints: $$ a\; \mathrm{U}\; (b\; \mathrm{U}\; (c\; \mathrm{U}\; (d\; \mathrm{U}\; (e\; \mathrm{U}\; f)))) $$. This goal is similar to the previous one, but we check that it passes through two different checkpoints before reaching the destination.
+
+The generated DFA for this task is reported in the following figure:
+
+<p align="center">
+<img src="./code/ltlf/results/through_3corners.png" alt="alt_title" height = "200"/> 
+<figcaption aligh="center">Fig.5: The Through 3 checkpoints goal generated DFA</figcaption>
+</p>
 
 For all of these, the training process ran for 2500 steps on consumer level hardware.
 
-For the second category, we defined the STRIPS-equivalent problem. This was then used to generate the LTL$$ _f$$  formula that would, in turn, generate the DFA automaton we needed as temporal goal. As a test, we implemented only the base environment in STRIPS, so the environment goal and the temporal goal coincided. Using STRIPS formalism makes it easier to define even more complex temporal goals and it is able to encapsulate a much broader variety of goals. In our case, the definition of the base environment goal actually generated a DFA that represented \emph{all} possible environment runs (since, as we explained earlier, the environment is randomly initialized).
+For the second category, we defined the STRIPS-equivalent problem. This was then used to generate the LTL$$ _f$$  formula that would, in turn, generate the DFA automaton we needed as temporal goal. As a test, we implemented only the base environment in STRIPS, so the environment goal and the temporal goal coincided. Using STRIPS formalism makes it easier to define even more complex temporal goals and it is able to encapsulate a much broader variety of goals. In our case, the definition of the base environment goal actually generated a DFA that represented all possible environment runs (since, as we explained earlier, the environment is randomly initialized).
 
 We developed the experiments using Python 3.7. We employed the following libraries during our development:
 
@@ -188,7 +226,7 @@ When testing the STRIPS formalism to define the temporal goals, we first defined
 3.  all traces end in a <code>sink</code> state after the goal is satisfied, otherwise there could be duplicated states that differ only in whether the goal has been reached or not.
 Since the states in the DFA generated in this way had no loops over themselves, we introduced an object in the TempRL library that would control whether or not to apply a step on the DFA. 
 
-For both experiments, the agent itself was trained via tabular Q-Learning.
+For both experiments, the agent itself was trained via tabular Q-Learning. Exploration was ensured via an  $$\epsilon$$-greedy strategy with a variable $$\epsilon$$ value of $$0.5$$ for all experiments but passing through 2 and 3 checkpoints, where a higher $$\epsilon$$ value was used (0.8). Additionally, the DFA reward was set to 100 for all tasks except for passing through 2 and 3 checkpoints, where we set the DFA reward to 500 and 5000, respectively, as we noticed that a lower reward lead to worse performance (probably due to the nature of the learning algorithm itself).
 
 We provide the code for our solution at <https://github.com/gallorob/ra_project>.
 
@@ -199,8 +237,8 @@ We report here the results of our experiments. Each experiment consists in train
 We found that the agent reliably clears the environment, obtaining the temporal goal reward consistently during training and during testing, where the episodic reward is higher than the temporal goal reward (set at 100) and varies only on the number of steps taken by the agent.
 
 <p align="center">
-<img src="./code/ltlf/results/Train rewards env_base.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards env_base.png" alt="alt_title" height = "200"/>
-<figcaption aligh="center">Fig.1: Train and test rewards for the base environment goal</figcaption>
+<img src="./code/ltlf/results/plots/env_base/Training_Withoutrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/env_base/Test_Withoutrewardshaping.png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.6: Train and test rewards for the base environment goal</figcaption>
 </p>
 
 When reward shaping is applied, we can see that the agent converges more rapidly to a stable high reward during training, though it also increases the frequency of failed episodes. During testing, however, the learned Q values are good enough that no episode failed. 
@@ -218,7 +256,14 @@ This modified temporal goal is still easily solved by the agent during training 
 <figcaption aligh="center">Fig.3: Train and test rewards for the passing through the center goal</figcaption>
 </p>
 
-Interestingly, however, the addition of the reward shaping effect actually hinders performances: the training is still solved but the average episodic reward is much lower and some of the tests episode actually fail. 
+All of the tests succeed
+
+<p align="center">
+<img src="./code/ltlf/results/Train rewards through_center.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_center.png" alt="alt_title" height = "200"/>
+<figcaption aligh="center">Fig.3: Train and test rewards for the passing through the center goal</figcaption>
+</p>
+
+As the taxi almost always has to move through the center tile, it does not surprises us that this goal is achieved easily.
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_center (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_center (reward shaping).png" alt="alt_title" height = "200"/>
@@ -227,7 +272,7 @@ Interestingly, however, the addition of the reward shaping effect actually hinde
 
 As the episodic rewards curve plateaus during training, we do not believe additional training steps would improve the agent's performances.
 
-### Pass through 1 corner goal 
+### Pass through 1 checkpoint goal 
 This modified temporal goal is similar to the previous one and as such is still easily solved by the agent during training and testing.
 
 <p align="center">
@@ -244,7 +289,7 @@ Similarly to the previous goal, the addition of the reward shaping effect actual
 
 The episodic rewards curve plateaus during training so we do not believe additional training steps would improve the agent's performances.
 
-### Pass through 2 corners goal
+### Pass through 2 checkpoints goal
 This modified temporal goal is more complex than the previous one but the agent is still able to obtain high rewards during training and testing. 
 
 <p align="center">
@@ -252,7 +297,7 @@ This modified temporal goal is more complex than the previous one but the agent 
 <figcaption aligh="center">Fig.7: Train and test rewards for the passing through 2 corners goal</figcaption>
 </p>
 
-We note however that some of the tests fail or have a final rewards that consists only on the base environment's reward (ie: it does not solve the temporal goal).
+We note however that some of the tests fail or have a final rewards that consists only on the base environment's reward (ie: it does not solve the temporal goal). The higher $$\epsilon$$ value used during training is the cause for the much diverse training rewards, as many more episodes were solved before actually ensuring the temporal goal.
 
 The addition of the reward shaping leads to faster convergence during training but some of the tests still fail. 
 
@@ -263,7 +308,7 @@ The addition of the reward shaping leads to faster convergence during training b
 
 However, with reward shaping there is no episode in the test that is completed without achieving the temporal goal as well.
 
-### Pass through 3 corners goal
+### Pass through 3 checkpoints goal
 This modified temporal goal is more complex than the previous one but the agent is still able to obtain high rewards during training and testing. 
 
 <p align="center">
@@ -271,38 +316,17 @@ This modified temporal goal is more complex than the previous one but the agent 
 <figcaption aligh="center">Fig.9: Train and test rewards for the passing through 3 corners goal</figcaption>
 </p>
 
-It is important to note that the convergence during training is much slower and the testing episodes either fail, are solved without satisfying the temporal goal and very few solve both the environment and the temporal goal. While the training curve plateaus, it is unclear if more training steps would actually increase performances significantly.
+While sometimes the agent solves the temporal goal along with the base environment goal, it clearly does not solve the entire environment. This result may change with many, many more time steps provided to allow more exploration to take place, though we believe Q-Learning with a simple $$\epsilon$$-greedy strategy may not be ideal in this case.
 
-The addition of the reward shaping leads to faster convergence during training but some of the tests still fail. 
+The addition of the reward shaping does not improve the results. 
 
 <p align="center">
 <img src="./code/ltlf/results/Train rewards through_3corners (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_3corners (reward shaping).png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.10: Train and test rewards for the passing through 3 corners goal with reward shaping</figcaption>
 </p>
 
-However, with reward shaping there is no episode in the test that is completed without achieving the temporal goal as well.
+In fact, during test we see only a few episodes where the base environment goal is solved, whereas no episodes solves the temporal goal.
 
-### Pass through 4 corners goal
-The last temporal goal we tested is the most complex out of all and the agent is able to only solve the base environment and not the temporal goal as well.
-
-<p align="center">
-<img src="./code/ltlf/results/Train rewards through_4corners.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_4corners.png" alt="alt_title" height = "200"/>
-<figcaption aligh="center">Fig.11: Train and test rewards for the passing through 4 corners goal</figcaption>
-</p>
-
-The addition of the reward shaping leads to faster convergence during training but no solution is found: not even the base environment is solved. This may be due to the complexity of the temporal goal, though it is unclear why not even the base environment could be solved. 
-
-<p align="center">
-<img src="./code/ltlf/results/Train rewards through_4corners (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_4corners (reward shaping).png" alt="alt_title" height = "200"/>
-<figcaption aligh="center">Fig.12: Train and test rewards for the passing through 4 corners goal with reward shaping</figcaption>
-</p>
-
-We also tried running the training with reward shaping for much longer, though the outcome is still the same.
-
-<p align="center">
-<img src="./code/ltlf/results/Train rewards through_4corners More steps (reward shaping).png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/Test rewards through_4corners More steps (reward shaping).png" alt="alt_title" height = "200"/>
-<figcaption aligh="center">Fig.13: Train and test rewards for the passing through 4 corners goal with reward shaping and with more training steps</figcaption>
-</p>
 
 ### STRIPS-based TG
 We report the generated graph of the STRIPS problem.
