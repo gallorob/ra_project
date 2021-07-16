@@ -242,7 +242,7 @@ We found that the agent reliably clears the environment, obtaining the temporal 
 </p>
 
 <p align="center">
-<img src="resources\env_base_rs_false.gif" alt="alt_title" height = "200"/>
+<img src="./resources/env_base_rs_false.gif" alt="alt_title" height = "200"/>
 </p>
 
 When reward shaping is applied, we can see that the agent converges more rapidly to a stable high reward during training, though it also increases the frequency of failed episodes. During testing, however, the learned Q values are good enough that no episode failed. 
