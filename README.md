@@ -290,11 +290,19 @@ This modified temporal goal is similar to the previous one and as such is still 
 <figcaption aligh="center">Fig.10: Train and test rewards for the passing through 1 checkpoint goal</figcaption>
 </p>
 
+<p align="center">
+<img src="resources\through_1_rs_false.gif" alt="alt_title" height = "200"/>
+</p>
+
 Similarly to the previous goal, the addition of the reward shaping effect actually hinders performances: the training is still solved but the average episodic reward is much lower and some of the tests episode actually fail.
 
 <p align="center">
 <img src="./code/ltlf/results/plots/through_1checkpoint/Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_1checkpoint/Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.11: Train and test rewards for the passing through 1 checkpoint goal with reward shaping</figcaption>
+</p>
+
+<p align="center">
+<img src="resources\through_1_rs_true.gif" alt="alt_title" height = "200"/>
 </p>
 
 The episodic rewards curve plateaus during training so we do not believe additional training steps would improve the agent's performances.
@@ -307,6 +315,10 @@ This modified temporal goal is more complex than the previous one but the agent 
 <figcaption aligh="center">Fig.12: Train and test rewards for the passing through 2 checkpoints goal</figcaption>
 </p>
 
+<p align="center">
+<img src="resources\through_2_rs_false.gif" alt="alt_title" height = "200"/>
+</p>
+
 We note however that some of the tests fail or have a final rewards that consists only on the base environment's reward (ie: it does not solve the temporal goal). The higher $$\epsilon$$ value used during training is the cause for the much diverse training rewards, as many more episodes were solved before actually ensuring the temporal goal.
 
 The addition of the reward shaping leads to faster convergence during training but some of the tests still fail. 
@@ -314,6 +326,10 @@ The addition of the reward shaping leads to faster convergence during training b
 <p align="center">
 <img src="./code/ltlf/results/plots/through_2checkpoints/Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_2checkpoints/Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.13: Train and test rewards for the passing through 2 checkpoints goal with reward shaping</figcaption>
+</p>
+
+<p align="center">
+<img src="resources\through_2_rs_true.gif" alt="alt_title" height = "200"/>
 </p>
 
 However, with reward shaping there is no episode in the test that is completed without achieving the temporal goal as well.
@@ -326,6 +342,10 @@ This modified temporal goal is more complex than the previous one but the agent 
 <figcaption aligh="center">Fig.14: Train and test rewards for the passing through 3 checkpoints goal</figcaption>
 </p>
 
+<p align="center">
+<img src="resources\through_3_rs_false.gif" alt="alt_title" height = "200"/>
+</p>
+
 While sometimes the agent solves the temporal goal along with the base environment goal, it clearly does not solve the entire environment. This result may change with many, many more time steps provided to allow more exploration to take place, though we believe Q-Learning with a simple $$\epsilon$$-greedy strategy may not be ideal in this case.
 
 The addition of the reward shaping does not improve the results. 
@@ -333,6 +353,10 @@ The addition of the reward shaping does not improve the results.
 <p align="center">
 <img src="./code/ltlf/results/plots/through_3checkpoints/Training_Withrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_3checkpoints/Test_Withrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.15: Train and test rewards for the passing through 3 checkpoints goal with reward shaping</figcaption>
+</p>
+
+<p align="center">
+<img src="resources\through_3_rs_true.gif" alt="alt_title" height = "200"/>
 </p>
 
 In fact, during test we see only a few episodes where the base environment goal is solved, whereas no episodes solves the temporal goal.
@@ -351,6 +375,10 @@ We ran the training for just 1500 steps as it rapidly converged to a solution.
 <p align="center">
 <img src="./code/strips/results/Training.png" alt="alt_title" height = "200"/> <img src="./code/strips/results/Test.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.17: Train and test rewards for the STRIPS-defined temporal goal.</figcaption>
+</p>
+
+<p align="center">
+<img src="resources\env_base_strips.gif" alt="alt_title" height = "200"/>
 </p>
 
 The rewards graph is similar to that of the base environment goal with reward shaping, reported in Fig.7, but with less bad rewards during training. We think this is due to the smaller value of $$\epsilon$$, set to $$0.1$$. The agent learned a good policy that solved both the base environment goal and the temporal goal (though, as previously stated, these two coincide) and obtained a high-enough score in the test phase.
