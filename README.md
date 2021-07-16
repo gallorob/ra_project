@@ -286,7 +286,7 @@ As the taxi almost always has to move through the center tile, it does not surpr
 This modified temporal goal is similar to the previous one and as such is still easily solved by the agent during training, though in testing it is still possible to see some failed episodes.
 
 <p align="center">
-<img src="./code/ltlf/results/plots/through_1checkpoint/Training_Withoutrewardshaping.png" alt="alt_title" height = "200"/> <img src="./code/ltlf/results/plots/through_1checkpoint/Test_Withoutrewardshaping.png" alt="alt_title" height = "200"/>
+<img src="code\ltlf\results\plots\through_1corner\Training_Withoutrewardshaping.png" alt="alt_title" height = "200"/> <img src="code\ltlf\results\plots\through_1corner\Test_Withoutrewardshaping.png" alt="alt_title" height = "200"/>
 <figcaption aligh="center">Fig.10: Train and test rewards for the passing through 1 checkpoint goal</figcaption>
 </p>
 
