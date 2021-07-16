@@ -198,7 +198,7 @@ The generated DFA for this task is reported in the following figure:
 The generated DFA for this task is reported in the following figure:
 
 <p align="center">
-<img src="./code/ltlf/results/through_3corners.png" alt="alt_title" height = "50"/> 
+<img src="./code/ltlf/results/through_3corners.png" alt="alt_title" height = "100"/> 
 <figcaption aligh="center">Fig.5: The Through 3 checkpoints goal generated DFA</figcaption>
 </p>
 
