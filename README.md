@@ -413,8 +413,8 @@ It is clear that the agent in both environments learns roughly at the same rate,
 
 We embed here the PDFs of both the report
 
-<embed src="https://github.com/gallorob/ra_project/blob/main/report/Report.pdf" type="application/pdf" width="1000px" height="500px"/>
+<embed type="application/pdf" src="https://gallorob.github.io/ra_project/report/Report.pdf" width="630px" height="500px">
 
 and the presentation
 
-<embed src="https://github.com/gallorob/ra_project/blob/main/presentation/Presentation.pdf" type="application/pdf" width="1000px" height="500px"/>
+<embed type="application/pdf" src="https://gallorob.github.io/ra_project/presentation/Presentation.pdf" width="630px" height="500px">
