@@ -410,3 +410,11 @@ It is clear that the agent in both environments learns roughly at the same rate,
 14. Favorito, M.: Logaut (v0.1.1) (2021)
 15. Favorito, M., Fuggitti, F.: Lydia (v0.1.2) (2021)
 16. Favorito, M.: Temprl (v0.3.0) (2021)
+
+We embed here the PDFs of both the report
+
+<embed src="https://github.com/gallorob/ra_project/blob/main/report/Report.pdf" type="application/pdf" />
+
+and the presentation
+
+<embed src="https://github.com/gallorob/ra_project/blob/main/presentation/Presentation.pdf" type="application/pdf" />
