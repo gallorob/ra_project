@@ -411,10 +411,14 @@ It is clear that the agent in both environments learns roughly at the same rate,
 15. Favorito, M., Fuggitti, F.: Lydia (v0.1.2) (2021)
 16. Favorito, M.: Temprl (v0.3.0) (2021)
 
-We embed here the PDFs of both the report
+We embed here the PDFs of both the report:
 
 <embed type="application/pdf" src="https://gallorob.github.io/ra_project/report/Report.pdf" width="630px" height="500px">
 
-and the presentation
+and the presentation:
 
 <embed type="application/pdf" src="https://gallorob.github.io/ra_project/presentation/Presentation.pdf" width="630px" height="500px">
+
+and the video presentation:
+
+<iframe width="1903" height="758" src="https://www.youtube.com/embed/0iTsZmkfpoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
